@@ -257,6 +257,7 @@ QListView::item, QListWidget::item, SceneTree::item {
     border: 1.5px solid transparent;
     color: ${t.text};
     font-weight: 600;
+    font-size: var(--font_large);
 }
 
 QListView::item:hover:!selected, QListWidget::item:hover:!selected, SceneTree::item:hover:!selected {
@@ -291,13 +292,15 @@ SourceTree::item, SourceTree::item:hover, SourceTree::item:selected, SourceTree:
     min-height: 32px;
 }
 SourceTreeItem {
-    padding: 0px 6px;
+    padding: 5px 6px;
     margin: 0px;
     border-radius: ${r}px;
     border: 0px solid transparent;
+    font-size: var(--font_large);
     min-height: 0px; /* o widget se ajusta à linha (32px); nada pode ser mais alto que ela, senão o conteúdo escorrega */
     font-weight: 600;
 }
+SourceTreeItem QLabel { font-size: var(--font_large); font-weight: 600; }
 .checkbox-icon { padding: 2px; margin-top: 0px; margin-bottom: 0px; }
 
 /* Foco (clique/teclado): o OBS usa borda BRANCA aqui; troca pela cor do tema (ex.: menu Configurações) */
@@ -305,11 +308,18 @@ QListView::item:focus:!selected, QListWidget::item:focus:!selected, SceneTree::i
 QListView::item:selected:focus, QListWidget::item:selected:focus, SceneTree::item:selected:focus { border: 1.5px solid ${A}; }
 QMenu::item:focus, QMenu::item:selected:focus { border: 0px solid transparent; border-left: 3px solid ${A}; }
 
-/* Fonte selecionada: contorno suave neutro, como no preview */
-SourceTree::item:selected {
-    background-color: ${t.dark ? 'rgba(255,255,255,0.05)' : 'rgba(0,0,0,0.05)'};
-    border: 1.5px solid ${t.dark ? 'rgba(255,255,255,0.45)' : g2};
+/* Fonte selecionada: mesma borda/tint do tema, com ou sem foco (sem isso o OBS deixa branca ao perder o foco) */
+SourceTree::item:selected, SourceTree::item:selected:!focus, SourceTree::item:selected:!active, SourceTree::item:selected:focus {
+    background-color: ${sel};
+    border: 1.5px solid ${A};
 }
+SourceTree::item:selected:hover { background-color: ${selHover}; border: 1.5px solid ${aLight}; }
+QListView::item:selected:!focus, QListWidget::item:selected:!focus, SceneTree::item:selected:!focus,
+QListView::item:selected:!active, QListWidget::item:selected:!active, SceneTree::item:selected:!active {
+    background-color: ${sel};
+    border: 1.5px solid ${A};
+}
+
 
 /* Olho, cadeado e seta de grupo (Ã­cones prÃ³prios do tema) */
 .checkbox-icon:hover, .checkbox-icon:focus {
@@ -517,6 +527,8 @@ for (const t of TEMAS) {
   }
   console.log(`OK  ${t.id}.obt + ${Object.keys(ICONES).length} Ã­cones`);
 }
+
+
 
 
 
