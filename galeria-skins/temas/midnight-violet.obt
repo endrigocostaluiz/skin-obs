@@ -172,7 +172,6 @@ SourceTreeItem QLabel { font-size: var(--font_large); font-weight: 600; }
 /* Foco (clique/teclado): o OBS usa borda BRANCA aqui; troca pela cor do tema (ex.: menu Configurações) */
 QListView::item:focus:!selected, QListWidget::item:focus:!selected, SceneTree::item:focus:!selected { border: 1.5px solid transparent; }
 QListView::item:selected:focus, QListWidget::item:selected:focus, SceneTree::item:selected:focus { border: 1.5px solid #8B5CF6; }
-QMenu::item:focus, QMenu::item:selected:focus { border: 0px solid transparent; border-left: 3px solid #8B5CF6; }
 
 /* Fonte selecionada: mesma borda/tint do tema, com ou sem foco (sem isso o OBS deixa branca ao perder o foco) */
 SourceTree::item:selected, SourceTree::item:selected:!focus, SourceTree::item:selected:!active, SourceTree::item:selected:focus {
@@ -357,7 +356,15 @@ QComboBox QAbstractItemView {
 /* ---------- Menus, abas, barra de status ---------- */
 QMenuBar::item:selected { background-color: #1C1730; color: #B495F9; border-radius: 6px; }
 QMenu { background-color: #130F22; border: 1px solid #272044; border-radius: 6px; }
-QMenu::item:selected { background-color: #261B44; color: #FAF5FF; border-left: 3px solid #8B5CF6; }
+/* Largura da borda IGUAL em todos os estados: se mudar no hover, o texto 'pula' */
+QMenu::item, QMenu > QWidget { border: 1px solid transparent; border-left: 3px solid transparent; }
+QMenu::item:hover, QMenu::item:selected, QMenu::item:selected:hover, QMenu::item:focus, QMenu::item:selected:focus,
+QMenu > QWidget:selected {
+    background-color: #261B44;
+    color: #FAF5FF;
+    border: 1px solid transparent;
+    border-left: 3px solid #8B5CF6;
+}
 
 QTabBar::tab:selected { color: #8B5CF6; border-bottom: 2px solid #8B5CF6; font-weight: 700; }
 
