@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://endrigocostaluiz.github.io/skin-obs/</loc>
+    <lastmod>2026-10-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <image:image><image:loc>https://endrigocostaluiz.github.io/skin-obs/assets/lumina-slate.jpg</image:loc><image:title>Lumina Slate - skin para OBS Studio</image:title></image:image>
+    <image:image><image:loc>https://endrigocostaluiz.github.io/skin-obs/assets/lumina-oled.jpg</image:loc><image:title>Lumina OLED Obsidian - skin para OBS Studio</image:title></image:image>
+    <image:image><image:loc>https://endrigocostaluiz.github.io/skin-obs/assets/cyber-amber.jpg</image:loc><image:title>Cyber Amber Broadcast - skin para OBS Studio</image:title></image:image>
+    <image:image><image:loc>https://endrigocostaluiz.github.io/skin-obs/assets/midnight-violet.jpg</image:loc><image:title>Midnight Creator - skin para OBS Studio</image:title></image:image>
+    <image:image><image:loc>https://endrigocostaluiz.github.io/skin-obs/assets/nordic-light.jpg</image:loc><image:title>Nordic Clean Studio - tema claro para OBS Studio</image:title></image:image>
+  </url>
+</urlset>

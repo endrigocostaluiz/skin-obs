@@ -1,0 +1,9 @@
+node_modules/
+dist/
+*.log
+.env*
+!.env.example
+.DS_Store
+# pacotes gerados (o ZIP publicado fica em galeria-skins/assets e docs/assets)
+/Instalador-Skin-Lumina-OBS.zip
+/obs-modern-skin.zip

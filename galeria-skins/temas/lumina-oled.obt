@@ -1,0 +1,362 @@
+@OBSThemeMeta {
+    name: 'Lumina OLED Obsidian';
+    id: 'com.lumina.luminaoled';
+    extends: 'com.obsproject.Yami';
+    author: 'Lumina Studio Design Team';
+    dark: 'true';
+}
+
+@OBSThemeVars {
+    /* Escala neutra (superfÃ­cies, bordas, botÃµes) */
+    --grey8: #000000;
+    --grey7: #050608;
+    --grey6: #0A0C10;
+    --grey5: #101318;
+    --grey4: #181C24;
+    --grey3: #222834;
+    --grey2: #31394A;
+    --grey1: #4F5B75;
+
+    /* Cor de destaque */
+    --blue1: #64D2AD;
+    --blue2: #3BC698;
+    --blue3: #10B981;
+    --blue4: #0E9D6E;
+    --blue5: #0B825A;
+    --blue6: #096647;
+    --primary: #10B981;
+    --primary_light: #3BC698;
+    --primary_lighter: #64D2AD;
+    --primary_dark: #0E9D6E;
+    --primary_darker: #0B825A;
+
+    --bg_window: #050608;
+    --bg_base: #0A0C10;
+    --bg_preview: #000000;
+
+    --text: #F8FAFC;
+    --text_light: #F8FAFC;
+    --text_muted: #64748B;
+    --text_disabled: #64748B;
+    --text_inactive: #64748B;
+
+    --border_color: #181C24;
+    --border_radius: 4px;
+    --border_radius_small: 2px;
+    --border_radius_large: 6px;
+
+    --input_bg: #101318;
+    --input_bg_hover: #181C24;
+    --input_bg_focus: #0A0C10;
+    --input_border: #181C24;
+    --input_border_hover: #31394A;
+    --input_border_focus: #10B981;
+
+    --button_bg: #101318;
+    --button_bg_hover: #181C24;
+    --button_bg_down: #050608;
+    --button_bg_disabled: #0A0C10;
+    --button_border: #181C24;
+    --button_border_hover: #10B981;
+    --button_border_focus: #10B981;
+
+    --list_item_bg_selected: #0B2822;
+    --list_item_bg_hover: #101318;
+
+    --tab_bg: #0A0C10;
+    --tab_bg_hover: #101318;
+    --tab_bg_down: #10B981;
+    --tab_border: #181C24;
+    --tab_border_selected: #10B981;
+    --tab_border_focus: #64D2AD;
+
+    --scrollbar_bg: #050608;
+    --scrollbar_handle: #181C24;
+    --scrollbar_hover: #222834;
+    --scrollbar_down: #10B981;
+
+    --highlight_color: #10B981;
+
+    --palette_window: #050608;
+    --palette_base: #0A0C10;
+    --palette_highlight: #10B981;
+    --palette_highlightedText: #04110C;
+}
+
+
+/* ====================================================================
+   LUMINA OLED OBSIDIAN - PadrÃ£o visual idÃªntico ao preview da galeria
+   Fonte: Plus Jakarta Sans (fallback Segoe UI) | Ãcones: Lucide
+   ==================================================================== */
+
+QWidget {
+    font-family: "Plus Jakarta Sans", "Segoe UI", "Inter", sans-serif;
+}
+
+/* ---------- Docks ---------- */
+QDockWidget::title {
+    background-color: #101318;
+    color: #F8FAFC;
+    padding: 7px 10px;
+    font-weight: 700;
+    border-bottom: 1px solid #181C24;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+OBSDock > QWidget, OBSDock QAbstractScrollArea {
+    background-color: #0A0C10;
+}
+
+/* ---------- Listas: Cenas e Fontes ---------- */
+QListView, QListWidget, SceneTree, SourceTree {
+    background-color: #050608;
+    border: 1px solid #181C24;
+    border-radius: 4px;
+    padding: 3px;
+}
+
+QListView::item, QListWidget::item, SceneTree::item {
+    padding: 7px 9px;
+    margin: 0px;
+    border-radius: 4px;
+    border: 1.5px solid transparent;
+    color: #F8FAFC;
+    font-weight: 600;
+}
+
+QListView::item:hover:!selected, QListWidget::item:hover:!selected, SceneTree::item:hover:!selected {
+    background-color: #101318;
+    border: 1.5px solid #181C24;
+}
+
+QListView::item:selected, QListWidget::item:selected, SceneTree::item:selected,
+.list-grid SceneTree::item:selected, .list-grid SceneTree::item:checked {
+    background-color: #0B2822;
+    border: 1.5px solid #10B981;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+QListView::item:selected:hover, QListWidget::item:selected:hover, SceneTree::item:selected:hover {
+    background-color: #0B362B;
+    border: 1.5px solid #3BC698;
+}
+
+.list-grid SceneTree::item {
+    background-color: #101318;
+    border: 1.5px solid #181C24;
+    border-radius: 4px;
+}
+
+/* O item de Fontes é um widget (SourceTreeItem) desenhado sobre a linha: a linha não pode ter
+   padding/margem, senão o hover/seleção fica deslocado ou pela metade */
+SourceTree::item, SourceTree::item:hover, SourceTree::item:selected, SourceTree::item:selected:hover {
+    padding: 0px;
+    margin: 0px;
+    min-height: 32px;
+}
+SourceTreeItem {
+    padding: 0px 6px;
+    margin: 0px;
+    border-radius: 4px;
+    border: 0px solid transparent;
+    min-height: 0px; /* o widget se ajusta à linha (32px); nada pode ser mais alto que ela, senão o conteúdo escorrega */
+    font-weight: 600;
+}
+.checkbox-icon { padding: 2px; margin-top: 0px; margin-bottom: 0px; }
+
+/* Foco (clique/teclado): o OBS usa borda BRANCA aqui; troca pela cor do tema (ex.: menu Configurações) */
+QListView::item:focus:!selected, QListWidget::item:focus:!selected, SceneTree::item:focus:!selected { border: 1.5px solid transparent; }
+QListView::item:selected:focus, QListWidget::item:selected:focus, SceneTree::item:selected:focus { border: 1.5px solid #10B981; }
+QMenu::item:focus, QMenu::item:selected:focus { border: 0px solid transparent; border-left: 3px solid #10B981; }
+
+/* Fonte selecionada: contorno suave neutro, como no preview */
+SourceTree::item:selected {
+    background-color: rgba(255,255,255,0.05);
+    border: 1.5px solid rgba(255,255,255,0.45);
+}
+
+/* Olho, cadeado e seta de grupo (Ã­cones prÃ³prios do tema) */
+.checkbox-icon:hover, .checkbox-icon:focus {
+    border-color: #222834;
+    background: #101318;
+}
+.indicator-visibility::indicator:checked, .indicator-visibility::indicator:checked:hover { image: url(theme:Lumina-lumina-oled/visible.svg); }
+.indicator-visibility::indicator:unchecked, .indicator-visibility::indicator:unchecked:hover { image: url(theme:Lumina-lumina-oled/invisible.svg); }
+.indicator-lock::indicator:checked, .indicator-lock::indicator:checked:hover { image: url(theme:Lumina-lumina-oled/locked.svg); }
+.indicator-lock::indicator:unchecked, .indicator-lock::indicator:unchecked:hover { image: url(theme:Lumina-lumina-oled/unlocked.svg); }
+.indicator-expand::indicator:checked, .indicator-expand::indicator:checked:hover { image: url(theme:Lumina-lumina-oled/expand.svg); }
+.indicator-expand::indicator:unchecked, .indicator-expand::indicator:unchecked:hover { image: url(theme:Lumina-lumina-oled/collapse.svg); }
+
+/* Ãcones por tipo de fonte (lidos pelo OBS a partir do tema) */
+OBSBasic {
+    qproperty-imageIcon: url(theme:Lumina-lumina-oled/sources/image.svg);
+    qproperty-colorIcon: url(theme:Lumina-lumina-oled/sources/brush.svg);
+    qproperty-slideshowIcon: url(theme:Lumina-lumina-oled/sources/slideshow.svg);
+    qproperty-audioInputIcon: url(theme:Lumina-lumina-oled/sources/microphone.svg);
+    qproperty-audioOutputIcon: url(theme:Lumina-lumina-oled/sources/audio.svg);
+    qproperty-desktopCapIcon: url(theme:Lumina-lumina-oled/sources/video.svg);
+    qproperty-windowCapIcon: url(theme:Lumina-lumina-oled/sources/window.svg);
+    qproperty-gameCapIcon: url(theme:Lumina-lumina-oled/sources/gamepad.svg);
+    qproperty-cameraIcon: url(theme:Lumina-lumina-oled/sources/camera.svg);
+    qproperty-textIcon: url(theme:Lumina-lumina-oled/sources/text.svg);
+    qproperty-mediaIcon: url(theme:Lumina-lumina-oled/sources/media.svg);
+    qproperty-browserIcon: url(theme:Lumina-lumina-oled/sources/globe.svg);
+    qproperty-groupIcon: url(theme:Lumina-lumina-oled/sources/group.svg);
+    qproperty-sceneIcon: url(theme:Lumina-lumina-oled/sources/scene.svg);
+    qproperty-defaultIcon: url(theme:Lumina-lumina-oled/sources/default.svg);
+    qproperty-audioProcessOutputIcon: url(theme:Lumina-lumina-oled/sources/windowaudio.svg);
+}
+
+/* ---------- Mixer de Ã¡udio ---------- */
+#stackedMixerArea, #vMixerScrollArea, #hMixerScrollArea {
+    background-color: #050608;
+}
+
+VolumeControl {
+    background-color: #0A0C10;
+    border: 1px solid #181C24;
+    border-radius: 6px;
+    margin: 3px 4px;
+    padding: 4px 6px;
+}
+
+VolumeControl .mixer-category,
+VolumeControl.volume-pinned .mixer-category {
+    background: #101318;
+    color: #10B981;
+    border-bottom: 2px solid #10B981;
+    font-weight: 700;
+    border-radius: 3px;
+}
+
+VolumeControl .mixer-name, VolumeName QLabel {
+    color: #F8FAFC;
+    font-weight: 700;
+}
+
+/* Valor em dB como "pÃ­lula" */
+VolumeControl #volLabel {
+    background: #101318;
+    border: 1px solid #181C24;
+    border-radius: 4px;
+    color: #F8FAFC;
+    font-family: "JetBrains Mono", "Consolas", monospace;
+    font-weight: 700;
+    padding: 2px 6px;
+}
+
+/* Medidor VU: verde -> amarelo -> vermelho sobre fundo escuro */
+VolumeMeter {
+    background: #0A0C10;
+    qproperty-backgroundNominalColor: #000000;
+    qproperty-backgroundWarningColor: #000000;
+    qproperty-backgroundErrorColor: #000000;
+    qproperty-foregroundNominalColor: #22C55E;
+    qproperty-foregroundWarningColor: #EAB308;
+    qproperty-foregroundErrorColor: #EF4444;
+    qproperty-magnitudeColor: #F8FAFC;
+    qproperty-majorTickColor: #64748B;
+    qproperty-minorTickColor: #222834;
+}
+
+/* ---------- Sliders (fader do mixer, duraÃ§Ã£o, etc.) ---------- */
+QSlider::groove:horizontal { background: #181C24; height: 4px; border-radius: 2px; border: none; }
+QSlider::groove:vertical   { background: #181C24; width: 4px;  border-radius: 2px; border: none; }
+QSlider::sub-page:horizontal { background: #10B981; border-radius: 2px; }
+QSlider::add-page:vertical   { background: #10B981; border-radius: 2px; }
+QSlider::handle:horizontal {
+    background: #10B981;
+    border: 2px solid #64D2AD;
+    width: 12px; height: 12px;
+    margin: -6px 0;
+    border-radius: 8px;
+}
+QSlider::handle:vertical {
+    background: #10B981;
+    border: 2px solid #64D2AD;
+    width: 12px; height: 12px;
+    margin: 0 -6px;
+    border-radius: 8px;
+}
+QSlider::handle:hover   { background: #3BC698; }
+QSlider::handle:pressed { background: #0E9D6E; }
+
+/* ---------- BotÃµes ---------- */
+QPushButton {
+    background-color: #101318;
+    border: 1px solid #181C24;
+    border-radius: 4px;
+    color: #F8FAFC;
+    font-weight: 600;
+}
+QPushButton:hover { background-color: #181C24; border-color: #10B981; color: #64D2AD; }
+QPushButton:pressed { background-color: #050608; border-color: #0E9D6E; }
+QPushButton:checked { background-color: #0B2822; border: 1.5px solid #10B981; color: #FFFFFF; font-weight: 700; }
+QPushButton:disabled { background-color: #0A0C10; border-color: #101318; color: #64748B; }
+
+/* BotÃ£o principal "Executar" / transiÃ§Ã£o */
+#transitionButton, QPushButton[class~="btn-primary"], .button-primary {
+    background-color: #10B981;
+    color: #04110C;
+    border: none;
+    font-weight: 800;
+}
+#transitionButton:hover, .button-primary:hover { background-color: #3BC698; color: #04110C; }
+
+/* ---------- Controles (Ã­cone + texto, como no preview) ---------- */
+#controlsFrame QPushButton {
+    text-align: left;
+    padding: 7px 12px;
+    icon-size: 16px;
+}
+#streamButton      { qproperty-icon: url(theme:Lumina-lumina-oled/btn/stream.svg); }
+#recordButton      { qproperty-icon: url(theme:Lumina-lumina-oled/btn/record.svg); }
+#virtualCamButton  { qproperty-icon: url(theme:Lumina-lumina-oled/btn/virtualcam.svg); }
+#modeSwitch        { qproperty-icon: url(theme:Lumina-lumina-oled/btn/studio.svg); }
+#settingsButton    { qproperty-icon: url(theme:Lumina-lumina-oled/btn/settings.svg); }
+#exitButton        { qproperty-icon: url(theme:Lumina-lumina-oled/btn/exit.svg); }
+
+#streamButton:!hover:!pressed.state-active,
+#recordButton:!hover:!pressed.state-active,
+#virtualCamButton:!hover:!pressed.state-active,
+#modeSwitch:!hover:!pressed.state-active {
+    background-color: #10B981;
+    border-color: #10B981;
+    color: #04110C;
+}
+
+/* ---------- Campos, combos e caixas ---------- */
+QLineEdit, QComboBox, QSpinBox, QDoubleSpinBox, QTextEdit, QPlainTextEdit {
+    background-color: #101318;
+    border: 1px solid #181C24;
+    border-radius: 4px;
+    color: #F8FAFC;
+    selection-background-color: #10B981;
+    selection-color: #04110C;
+}
+QLineEdit:focus, QComboBox:focus, QSpinBox:focus, QDoubleSpinBox:focus { border-color: #10B981; }
+QComboBox QAbstractItemView {
+    background-color: #0A0C10;
+    border: 1px solid #181C24;
+    selection-background-color: #0B2822;
+    selection-color: #F8FAFC;
+}
+
+/* ---------- Menus, abas, barra de status ---------- */
+QMenuBar::item:selected { background-color: #101318; color: #64D2AD; border-radius: 4px; }
+QMenu { background-color: #0A0C10; border: 1px solid #181C24; border-radius: 4px; }
+QMenu::item:selected { background-color: #0B2822; color: #F8FAFC; border-left: 3px solid #10B981; }
+
+QTabBar::tab:selected { color: #10B981; border-bottom: 2px solid #10B981; font-weight: 700; }
+
+OBSBasicStatusBar { background: #050608; border-top: 1px solid #181C24; }
+QStatusBar QLabel, StatusBarWidget QLabel {
+    font-family: "JetBrains Mono", "Consolas", monospace;
+    color: #64748B;
+}
+
+/* ---------- Barras de rolagem finas ---------- */
+QScrollBar::handle { border-radius: 3px; }
+QScrollBar::handle:hover { background: #10B981; }

@@ -1,0 +1,40 @@
+====================================================================
+LUMINA OBS - PACOTE OFICIAL DE SKINS PARA OBS STUDIO (Qt6)
+====================================================================
+
+Compatibilidade:
+- OBS Studio 28, 29, 30 e 31+ (Qt6 Oficial)
+- Windows 10 e Windows 11
+- 0.0% Overhead de GPU (estilos nativos .ovt e .qss)
+
+--------------------------------------------------------------------
+ARQUIVOS INCLUÍDOS NO PACOTE:
+--------------------------------------------------------------------
+1. "Instalar-Skin-Lumina-OBS.bat"
+   - Instala todos os 5 modelos oficiais na pasta de temas do OBS.
+   - Pergunta qual skin você deseja ativar e já abre o OBS pronto.
+
+2. "Trocar-Tema-Rapido.bat"
+   - Utilitário de 1 clique para trocar entre os 5 temas a qualquer momento:
+     [1] Lumina OLED Obsidian (Verde Esmeralda - Preto Puro)
+     [2] Lumina Slate (Azul Safira - Ardósia Escura)
+     [3] Cyber Amber Broadcast (Âmbar Estúdio Rádio/TV)
+     [4] Midnight Creator (Violeta Neon Twitch/Kick)
+     [5] Nordic Clean Studio (Modo Claro Alto Contraste)
+
+3. "Desinstalar-Skin-Lumina-OBS.bat"
+   - Restaura a aparência original do OBS Studio.
+
+--------------------------------------------------------------------
+COMO ESCOLHER O TEMA PELO MENU DO OBS STUDIO:
+--------------------------------------------------------------------
+Se você preferir alternar pelo próprio menu do OBS:
+1. Abra o OBS Studio.
+2. Vá em: Configurações -> Geral -> Tema (ou Aparência).
+3. Selecione a skin Lumina desejada:
+   - Lumina OLED Obsidian
+   - Lumina Slate
+   - Cyber Amber Broadcast
+   - Midnight Creator
+   - Nordic Clean Studio
+4. Clique em "Aplicar" ou "OK"!

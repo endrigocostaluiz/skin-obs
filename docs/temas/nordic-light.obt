@@ -1,0 +1,741 @@
+@OBSThemeMeta {
+    name: 'Nordic Clean Studio';
+    id: 'com.lumina.nordiclight';
+    extends: 'com.obsproject.Yami';
+    author: 'Lumina Studio Design Team';
+    dark: 'false';
+}
+
+@OBSThemeVars {
+    /* Escala neutra (superfÃ­cies, bordas, botÃµes) */
+    --grey8: #FFFFFF;
+    --grey7: #F8FAFC;
+    --grey6: #F1F5F9;
+    --grey5: #E2E8F0;
+    --grey4: #CBD5E1;
+    --grey3: #94A3B8;
+    --grey2: #64748B;
+    --grey1: #334155;
+
+    /* Cor de destaque */
+    --blue1: #719AF2;
+    --blue2: #4C7FEF;
+    --blue3: #2563EB;
+    --blue4: #1F54C8;
+    --blue5: #1A45A5;
+    --blue6: #143681;
+    --primary: #2563EB;
+    --primary_light: #4C7FEF;
+    --primary_lighter: #719AF2;
+    --primary_dark: #1F54C8;
+    --primary_darker: #1A45A5;
+
+    --bg_window: #F8FAFC;
+    --bg_base: #F1F5F9;
+    --bg_preview: #FFFFFF;
+
+    --text: #0F172A;
+    --text_light: #0F172A;
+    --text_muted: #64748B;
+    --text_disabled: #64748B;
+    --text_inactive: #64748B;
+
+    --border_color: #CBD5E1;
+    --border_radius: 6px;
+    --border_radius_small: 4px;
+    --border_radius_large: 8px;
+
+    --input_bg: #E2E8F0;
+    --input_bg_hover: #CBD5E1;
+    --input_bg_focus: #F1F5F9;
+    --input_border: #CBD5E1;
+    --input_border_hover: #64748B;
+    --input_border_focus: #2563EB;
+
+    --button_bg: #E2E8F0;
+    --button_bg_hover: #CBD5E1;
+    --button_bg_down: #F8FAFC;
+    --button_bg_disabled: #F1F5F9;
+    --button_border: #CBD5E1;
+    --button_border_hover: #2563EB;
+    --button_border_focus: #2563EB;
+
+    --list_item_bg_selected: #D9E3F7;
+    --list_item_bg_hover: #E2E8F0;
+
+    --tab_bg: #F1F5F9;
+    --tab_bg_hover: #E2E8F0;
+    --tab_bg_down: #2563EB;
+    --tab_border: #CBD5E1;
+    --tab_border_selected: #2563EB;
+    --tab_border_focus: #719AF2;
+
+    --scrollbar_bg: #F8FAFC;
+    --scrollbar_handle: #CBD5E1;
+    --scrollbar_hover: #94A3B8;
+    --scrollbar_down: #2563EB;
+
+    --highlight_color: #2563EB;
+
+    --palette_window: #F8FAFC;
+    --palette_base: #F1F5F9;
+    --palette_highlight: #2563EB;
+    --palette_highlightedText: #FFFFFF;
+}
+
+﻿/* Estilos de ícones/botões do tema claro oficial (Yami Light), reaproveitados pelo Nordic Clean Studio */
+/* --------------------- */
+/* General Styling Hints */
+
+.button-primary:hover {
+    border-color: var(--button_border_hover);
+}
+
+/* Mute Button */
+
+.btn-mute {
+    qproperty-icon: url(theme:Light/settings/audio.svg);
+}
+
+.btn-mute.checked {
+    qproperty-icon: url(theme:Light/mute.svg);
+}
+
+/* Monitor Button */
+
+.btn-monitor {
+    qproperty-icon: url(theme:Light/headphones-off.svg);
+}
+
+.btn-monitor.checked {
+    color: var(--text_light);
+    qproperty-icon: url(theme:Light/headphones.svg);
+}
+
+VolumeControl.volume-inactive,
+VolumeControl.volume-inactive VolumeMeter {
+    background: var(--grey8);
+}
+
+VolumeMeter {
+    qproperty-backgroundNominalColor: var(--green4);
+    qproperty-backgroundWarningColor: var(--yellow4);
+    qproperty-backgroundErrorColor: var(--red4);
+    qproperty-foregroundNominalColor: var(--green1);
+    qproperty-foregroundWarningColor: var(--yellow1);
+    qproperty-foregroundErrorColor: var(--red1);
+    qproperty-magnitudeColor: rgb(0,0,0);
+    qproperty-majorTickColor: var(--black1);
+    qproperty-minorTickColor: var(--black5);
+
+    qproperty-backgroundNominalColorDisabled: var(--black3);
+    qproperty-backgroundWarningColorDisabled: var(--black4);
+    qproperty-backgroundErrorColorDisabled: var(--black3);
+    qproperty-foregroundNominalColorDisabled: var(--black5);
+    qproperty-foregroundWarningColorDisabled: var(--white5);
+    qproperty-foregroundErrorColorDisabled: var(--white4);
+}
+
+.toggle-hidden:checked {
+    background: var(--purple1);
+    border-color: var(--purple5);
+    color: var(--purple6);
+}
+
+VolumeControl .mixer-category {
+    background: var(--blue1);
+    color: var(--text_light);
+}
+
+VolumeControl.volume-pinned .mixer-category {
+    background: var(--blue2);    
+}
+
+VolumeControl.volume-hidden .mixer-category {
+    background: var(--purple1);
+    color: var(--purple6);
+}
+
+VolumeControl.volume-unassigned .mixer-category {
+    background: var(--yellow1);
+    color: var(--yellow6);
+}
+
+VolumeControl.volume-inactive .mixer-category {
+    background: var(--grey8);
+    color: var(--text_muted);
+}
+
+VolumeControl.volume-preview .mixer-category {
+    background: var(--green3);
+    color: var(--text_light);
+}
+
+QMenu::right-arrow {
+    image: url(theme:Light/expand.svg);
+}
+
+QDockWidget {
+    titlebar-close-icon: url(theme:Light/close.svg);
+    titlebar-normal-icon: url(theme:Light/popout.svg);
+}
+
+QPushButton#sourcePropertiesButton {
+    qproperty-icon: url(theme:Light/settings/general.svg);
+}
+
+QPushButton#sourceFiltersButton {
+    qproperty-icon: url(theme:Light/filter.svg);
+}
+
+.icon-plus {
+    qproperty-icon: url(theme:Light/plus.svg);
+}
+
+.icon-minus {
+    qproperty-icon: url(theme:Light/minus.svg);
+}
+
+.icon-trash {
+    qproperty-icon: url(theme:Light/trash.svg);
+}
+
+.icon-clear {
+    qproperty-icon: url(theme:Light/entry-clear.svg);
+}
+
+.icon-gear {
+    qproperty-icon: url(theme:Light/settings/general.svg);
+}
+
+.icon-dots-vert {
+    qproperty-icon: url(theme:Light/dots-vert.svg);
+}
+
+.icon-refresh {
+    qproperty-icon: url(theme:Light/refresh.svg);
+}
+
+.icon-cogs {
+    qproperty-icon: url(theme:Light/cogs.svg);
+}
+
+.icon-touch {
+    qproperty-icon: url(theme:Light/interact.svg);
+}
+
+.icon-up {
+    qproperty-icon: url(theme:Light/up.svg);
+}
+
+.icon-down {
+    qproperty-icon: url(theme:Light/down.svg);
+}
+
+.icon-filter {
+    qproperty-icon: url(theme:Light/filter.svg);
+}
+
+.icon-revert {
+    qproperty-icon: url(theme:Light/revert.svg);
+}
+
+.icon-close {
+    qproperty-icon: url(theme:Light/close.svg);
+}
+
+.icon-layout-vertical {
+    qproperty-icon: url(theme:Light/layout-vertical.svg);
+}
+
+.icon-layout-horizontal {
+    qproperty-icon: url(theme:Light/layout-horizontal.svg);
+}
+
+QToolBarExtension {
+    qproperty-icon: url(theme:Light/dots-vert.svg);
+}
+
+QComboBox::down-arrow,
+QDateTimeEdit::down-arrow {
+    image: url(theme:Light/collapse.svg);
+}
+
+QComboBox::down-arrow:editable,
+QDateTimeEdit::down-arrow:editable {
+    image: url(theme:Light/collapse.svg);
+}
+
+QSpinBox::up-arrow, QDoubleSpinBox::up-arrow {
+    image: url(theme:Light/up.svg);
+}
+
+QSpinBox::down-arrow, QDoubleSpinBox::down-arrow {
+    image: url(theme:Light/down.svg);
+}
+
+QPushButton::menu-indicator {
+    image: url(theme:Light/down.svg);
+}
+
+OBSBasicSettings {
+    qproperty-generalIcon: url(theme:Light/settings/general.svg);
+    qproperty-appearanceIcon: url(theme:Light/settings/appearance.svg);
+    qproperty-streamIcon: url(theme:Light/settings/stream.svg);
+    qproperty-outputIcon: url(theme:Light/settings/output.svg);
+    qproperty-audioIcon: url(theme:Light/settings/audio.svg);
+    qproperty-videoIcon: url(theme:Light/settings/video.svg);
+    qproperty-hotkeysIcon: url(theme:Light/settings/hotkeys.svg);
+    qproperty-accessibilityIcon: url(theme:Light/settings/accessibility.svg);
+    qproperty-advancedIcon: url(theme:Light/settings/advanced.svg);
+}
+
+QCheckBox::indicator:unchecked,
+QGroupBox::indicator:unchecked,
+QTableView::indicator:unchecked {
+    image: url(theme:Light/checkbox_unchecked.svg);
+}
+
+QCheckBox::indicator:unchecked:hover,
+QGroupBox::indicator:unchecked:hover,
+QTableView::indicator:unchecked:hover {
+    image: url(theme:Light/checkbox_unchecked_focus.svg);
+}
+
+QCheckBox::indicator:checked,
+QGroupBox::indicator:checked,
+QTableView::indicator:checked {
+    image: url(theme:Light/checkbox_checked.svg);
+}
+
+QCheckBox::indicator:checked:hover,
+QGroupBox::indicator:checked:hover,
+QTableView::indicator:checked:hover {
+    image: url(theme:Light/checkbox_checked_focus.svg);
+}
+
+QCheckBox::indicator:checked:disabled,
+QGroupBox::indicator:checked:disabled,
+QTableView::indicator:checked:disabled {
+    image: url(theme:Light/checkbox_checked_disabled.svg);
+}
+
+QCheckBox::indicator:unchecked:disabled,
+QGroupBox::indicator:unchecked:disabled,
+QTableView::indicator:unchecked:disabled {
+    image: url(theme:Light/checkbox_unchecked_disabled.svg);
+}
+
+.indicator-lock::indicator:checked,
+.indicator-lock::indicator:checked:hover {
+    image: url(theme:Light/locked.svg);
+}
+
+.indicator-visibility::indicator:checked,
+.indicator-visibility::indicator:checked:hover {
+    image: url(theme:Light/visible.svg);
+}
+
+.indicator-expand::indicator:checked,
+.indicator-expand::indicator:checked:hover {
+    image: url(theme:Light/expand.svg);
+}
+
+.indicator-expand::indicator:unchecked,
+.indicator-expand::indicator:unchecked:hover {
+    image: url(theme:Light/collapse.svg);
+}
+
+/* Source Icons */
+OBSBasic {
+    qproperty-imageIcon: url(theme:Light/sources/image.svg);
+    qproperty-colorIcon: url(theme:Light/sources/brush.svg);
+    qproperty-slideshowIcon: url(theme:Light/sources/slideshow.svg);
+    qproperty-audioInputIcon: url(theme:Light/sources/microphone.svg);
+    qproperty-audioOutputIcon: url(theme:Light/settings/audio.svg);
+    qproperty-desktopCapIcon: url(theme:Light/settings/video.svg);
+    qproperty-windowCapIcon: url(theme:Light/sources/window.svg);
+    qproperty-gameCapIcon: url(theme:Light/sources/gamepad.svg);
+    qproperty-cameraIcon: url(theme:Light/sources/camera.svg);
+    qproperty-textIcon: url(theme:Light/sources/text.svg);
+    qproperty-mediaIcon: url(theme:Light/sources/media.svg);
+    qproperty-browserIcon: url(theme:Light/sources/globe.svg);
+    qproperty-groupIcon: url(theme:Light/sources/group.svg);
+    qproperty-sceneIcon: url(theme:Light/sources/scene.svg);
+    qproperty-defaultIcon: url(theme:Light/sources/default.svg);
+    qproperty-audioProcessOutputIcon: url(theme:Light/sources/windowaudio.svg);
+}
+
+.icon-save {
+    qproperty-icon: url(theme:Light/save.svg);
+}
+
+/* Media icons */
+.icon-media-play {
+    qproperty-icon: url(theme:Light/media/media_play.svg);
+}
+
+.icon-media-pause {
+    qproperty-icon: url(theme:Light/media/media_pause.svg);
+}
+
+.icon-media-restart {
+    qproperty-icon: url(theme:Light/media/media_restart.svg);
+}
+
+.icon-media-stop {
+    qproperty-icon: url(theme:Light/media/media_stop.svg);
+}
+
+.icon-media-next {
+    qproperty-icon: url(theme:Light/media/media_next.svg);
+}
+
+.icon-media-prev {
+    qproperty-icon: url(theme:Light/media/media_previous.svg);
+}
+
+/* YouTube Integration */
+OBSYoutubeActions {
+    qproperty-thumbPlaceholder: url(theme:Light/sources/image.svg);
+}
+
+QDateTimeEdit::down-arrow {
+    image: url(theme:Light/down.svg);
+}
+
+#qt_calendar_monthbutton::menu-indicator {
+    image: url(theme:Light/down.svg);
+}
+
+QCalendarWidget #qt_calendar_prevmonth {
+    qproperty-icon: url(theme:Light/left.svg);
+}
+
+QCalendarWidget #qt_calendar_nextmonth {
+    qproperty-icon: url(theme:Light/right.svg);
+}
+
+/* Idian Widgets */
+idian--ToggleSwitch {
+    qproperty-background: var(--grey8);
+    qproperty-background_hover: var(--grey7);
+    qproperty-background_checked: var(--primary);
+    qproperty-background_checked_hover: var(--primary_light);
+}
+
+idian--Row QComboBox::down-arrow {
+    image: url(theme:Light/collapse.svg);
+}
+
+idian--CheckBox.keyFocus::indicator,
+idian--Row.hover > idian--CheckBox.row-buddy::indicator {
+    image: url(theme:Light/checkbox_unchecked_focus.svg);
+}
+
+idian--CheckBox.keyFocus.checked::indicator,
+idian--Row.hover > idian--CheckBox.row-buddy.checked::indicator {
+    image: url(theme:Light/checkbox_checked_focus.svg);
+}
+
+idian--ExpandButton::indicator {
+    image: url(theme:Light/down.svg);
+}
+
+idian--ExpandButton::indicator:checked {
+    image: url(theme:Light/up.svg);
+}
+
+/* Add Source Dialog */
+SourceSelectButton QPushButton,
+SourceSelectButton #thumbnail {
+    border-color: var(--grey3);
+}
+
+SourceSelectButton QPushButton:checked {
+    background: var(--primary);
+    border-color: var(--primary_light);
+}
+
+SourceSelectButton QPushButton:checked:focus,
+SourceSelectButton QPushButton:focus {
+    border-color: var(--black3);
+}
+
+
+/* ====================================================================
+   NORDIC CLEAN STUDIO - PadrÃ£o visual idÃªntico ao preview da galeria
+   Fonte: Plus Jakarta Sans (fallback Segoe UI) | Ãcones: Lucide
+   ==================================================================== */
+
+QWidget {
+    font-family: "Plus Jakarta Sans", "Segoe UI", "Inter", sans-serif;
+}
+
+/* ---------- Docks ---------- */
+QDockWidget::title {
+    background-color: #E2E8F0;
+    color: #0F172A;
+    padding: 7px 10px;
+    font-weight: 700;
+    border-bottom: 1px solid #CBD5E1;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+OBSDock > QWidget, OBSDock QAbstractScrollArea {
+    background-color: #F1F5F9;
+}
+
+/* ---------- Listas: Cenas e Fontes ---------- */
+QListView, QListWidget, SceneTree, SourceTree {
+    background-color: #F8FAFC;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    padding: 3px;
+}
+
+QListView::item, QListWidget::item, SceneTree::item {
+    padding: 7px 9px;
+    margin: 0px;
+    border-radius: 6px;
+    border: 1.5px solid transparent;
+    color: #0F172A;
+    font-weight: 600;
+}
+
+QListView::item:hover:!selected, QListWidget::item:hover:!selected, SceneTree::item:hover:!selected {
+    background-color: #E2E8F0;
+    border: 1.5px solid #CBD5E1;
+}
+
+QListView::item:selected, QListWidget::item:selected, SceneTree::item:selected,
+.list-grid SceneTree::item:selected, .list-grid SceneTree::item:checked {
+    background-color: #D9E3F7;
+    border: 1.5px solid #2563EB;
+    color: #0F172A;
+    font-weight: 700;
+}
+
+QListView::item:selected:hover, QListWidget::item:selected:hover, SceneTree::item:selected:hover {
+    background-color: #C8D8F6;
+    border: 1.5px solid #4C7FEF;
+}
+
+.list-grid SceneTree::item {
+    background-color: #E2E8F0;
+    border: 1.5px solid #CBD5E1;
+    border-radius: 6px;
+}
+
+/* O item de Fontes é um widget (SourceTreeItem) desenhado sobre a linha: a linha não pode ter
+   padding/margem, senão o hover/seleção fica deslocado ou pela metade */
+SourceTree::item, SourceTree::item:hover, SourceTree::item:selected, SourceTree::item:selected:hover {
+    padding: 0px;
+    margin: 0px;
+    min-height: 32px;
+}
+SourceTreeItem {
+    padding: 0px 6px;
+    margin: 0px;
+    border-radius: 6px;
+    border: 0px solid transparent;
+    min-height: 0px; /* o widget se ajusta à linha (32px); nada pode ser mais alto que ela, senão o conteúdo escorrega */
+    font-weight: 600;
+}
+.checkbox-icon { padding: 2px; margin-top: 0px; margin-bottom: 0px; }
+
+/* Foco (clique/teclado): o OBS usa borda BRANCA aqui; troca pela cor do tema (ex.: menu Configurações) */
+QListView::item:focus:!selected, QListWidget::item:focus:!selected, SceneTree::item:focus:!selected { border: 1.5px solid transparent; }
+QListView::item:selected:focus, QListWidget::item:selected:focus, SceneTree::item:selected:focus { border: 1.5px solid #2563EB; }
+QMenu::item:focus, QMenu::item:selected:focus { border: 0px solid transparent; border-left: 3px solid #2563EB; }
+
+/* Fonte selecionada: contorno suave neutro, como no preview */
+SourceTree::item:selected {
+    background-color: rgba(0,0,0,0.05);
+    border: 1.5px solid #64748B;
+}
+
+/* Olho, cadeado e seta de grupo (Ã­cones prÃ³prios do tema) */
+.checkbox-icon:hover, .checkbox-icon:focus {
+    border-color: #94A3B8;
+    background: #E2E8F0;
+}
+.indicator-visibility::indicator:checked, .indicator-visibility::indicator:checked:hover { image: url(theme:Lumina-nordic-light/visible.svg); }
+.indicator-visibility::indicator:unchecked, .indicator-visibility::indicator:unchecked:hover { image: url(theme:Lumina-nordic-light/invisible.svg); }
+.indicator-lock::indicator:checked, .indicator-lock::indicator:checked:hover { image: url(theme:Lumina-nordic-light/locked.svg); }
+.indicator-lock::indicator:unchecked, .indicator-lock::indicator:unchecked:hover { image: url(theme:Lumina-nordic-light/unlocked.svg); }
+.indicator-expand::indicator:checked, .indicator-expand::indicator:checked:hover { image: url(theme:Lumina-nordic-light/expand.svg); }
+.indicator-expand::indicator:unchecked, .indicator-expand::indicator:unchecked:hover { image: url(theme:Lumina-nordic-light/collapse.svg); }
+
+/* Ãcones por tipo de fonte (lidos pelo OBS a partir do tema) */
+OBSBasic {
+    qproperty-imageIcon: url(theme:Lumina-nordic-light/sources/image.svg);
+    qproperty-colorIcon: url(theme:Lumina-nordic-light/sources/brush.svg);
+    qproperty-slideshowIcon: url(theme:Lumina-nordic-light/sources/slideshow.svg);
+    qproperty-audioInputIcon: url(theme:Lumina-nordic-light/sources/microphone.svg);
+    qproperty-audioOutputIcon: url(theme:Lumina-nordic-light/sources/audio.svg);
+    qproperty-desktopCapIcon: url(theme:Lumina-nordic-light/sources/video.svg);
+    qproperty-windowCapIcon: url(theme:Lumina-nordic-light/sources/window.svg);
+    qproperty-gameCapIcon: url(theme:Lumina-nordic-light/sources/gamepad.svg);
+    qproperty-cameraIcon: url(theme:Lumina-nordic-light/sources/camera.svg);
+    qproperty-textIcon: url(theme:Lumina-nordic-light/sources/text.svg);
+    qproperty-mediaIcon: url(theme:Lumina-nordic-light/sources/media.svg);
+    qproperty-browserIcon: url(theme:Lumina-nordic-light/sources/globe.svg);
+    qproperty-groupIcon: url(theme:Lumina-nordic-light/sources/group.svg);
+    qproperty-sceneIcon: url(theme:Lumina-nordic-light/sources/scene.svg);
+    qproperty-defaultIcon: url(theme:Lumina-nordic-light/sources/default.svg);
+    qproperty-audioProcessOutputIcon: url(theme:Lumina-nordic-light/sources/windowaudio.svg);
+}
+
+/* ---------- Mixer de Ã¡udio ---------- */
+#stackedMixerArea, #vMixerScrollArea, #hMixerScrollArea {
+    background-color: #F8FAFC;
+}
+
+VolumeControl {
+    background-color: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    margin: 3px 4px;
+    padding: 4px 6px;
+}
+
+VolumeControl .mixer-category,
+VolumeControl.volume-pinned .mixer-category {
+    background: #E2E8F0;
+    color: #2563EB;
+    border-bottom: 2px solid #2563EB;
+    font-weight: 700;
+    border-radius: 3px;
+}
+
+VolumeControl .mixer-name, VolumeName QLabel {
+    color: #0F172A;
+    font-weight: 700;
+}
+
+/* Valor em dB como "pÃ­lula" */
+VolumeControl #volLabel {
+    background: #E2E8F0;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    color: #0F172A;
+    font-family: "JetBrains Mono", "Consolas", monospace;
+    font-weight: 700;
+    padding: 2px 6px;
+}
+
+/* Medidor VU: verde -> amarelo -> vermelho sobre fundo escuro */
+VolumeMeter {
+    background: #F1F5F9;
+    qproperty-backgroundNominalColor: #CBD5E1;
+    qproperty-backgroundWarningColor: #CBD5E1;
+    qproperty-backgroundErrorColor: #CBD5E1;
+    qproperty-foregroundNominalColor: #22C55E;
+    qproperty-foregroundWarningColor: #EAB308;
+    qproperty-foregroundErrorColor: #EF4444;
+    qproperty-magnitudeColor: #0F172A;
+    qproperty-majorTickColor: #64748B;
+    qproperty-minorTickColor: #94A3B8;
+}
+
+/* ---------- Sliders (fader do mixer, duraÃ§Ã£o, etc.) ---------- */
+QSlider::groove:horizontal { background: #CBD5E1; height: 4px; border-radius: 2px; border: none; }
+QSlider::groove:vertical   { background: #CBD5E1; width: 4px;  border-radius: 2px; border: none; }
+QSlider::sub-page:horizontal { background: #2563EB; border-radius: 2px; }
+QSlider::add-page:vertical   { background: #2563EB; border-radius: 2px; }
+QSlider::handle:horizontal {
+    background: #2563EB;
+    border: 2px solid #719AF2;
+    width: 12px; height: 12px;
+    margin: -6px 0;
+    border-radius: 8px;
+}
+QSlider::handle:vertical {
+    background: #2563EB;
+    border: 2px solid #719AF2;
+    width: 12px; height: 12px;
+    margin: 0 -6px;
+    border-radius: 8px;
+}
+QSlider::handle:hover   { background: #4C7FEF; }
+QSlider::handle:pressed { background: #1F54C8; }
+
+/* ---------- BotÃµes ---------- */
+QPushButton {
+    background-color: #E2E8F0;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    color: #0F172A;
+    font-weight: 600;
+}
+QPushButton:hover { background-color: #CBD5E1; border-color: #2563EB; color: #2563EB; }
+QPushButton:pressed { background-color: #F8FAFC; border-color: #1F54C8; }
+QPushButton:checked { background-color: #D9E3F7; border: 1.5px solid #2563EB; color: #0F172A; font-weight: 700; }
+QPushButton:disabled { background-color: #F1F5F9; border-color: #E2E8F0; color: #64748B; }
+
+/* BotÃ£o principal "Executar" / transiÃ§Ã£o */
+#transitionButton, QPushButton[class~="btn-primary"], .button-primary {
+    background-color: #2563EB;
+    color: #FFFFFF;
+    border: none;
+    font-weight: 800;
+}
+#transitionButton:hover, .button-primary:hover { background-color: #4C7FEF; color: #FFFFFF; }
+
+/* ---------- Controles (Ã­cone + texto, como no preview) ---------- */
+#controlsFrame QPushButton {
+    text-align: left;
+    padding: 7px 12px;
+    icon-size: 16px;
+}
+#streamButton      { qproperty-icon: url(theme:Lumina-nordic-light/btn/stream.svg); }
+#recordButton      { qproperty-icon: url(theme:Lumina-nordic-light/btn/record.svg); }
+#virtualCamButton  { qproperty-icon: url(theme:Lumina-nordic-light/btn/virtualcam.svg); }
+#modeSwitch        { qproperty-icon: url(theme:Lumina-nordic-light/btn/studio.svg); }
+#settingsButton    { qproperty-icon: url(theme:Lumina-nordic-light/btn/settings.svg); }
+#exitButton        { qproperty-icon: url(theme:Lumina-nordic-light/btn/exit.svg); }
+
+#streamButton:!hover:!pressed.state-active,
+#recordButton:!hover:!pressed.state-active,
+#virtualCamButton:!hover:!pressed.state-active,
+#modeSwitch:!hover:!pressed.state-active {
+    background-color: #2563EB;
+    border-color: #2563EB;
+    color: #FFFFFF;
+}
+
+/* ---------- Campos, combos e caixas ---------- */
+QLineEdit, QComboBox, QSpinBox, QDoubleSpinBox, QTextEdit, QPlainTextEdit {
+    background-color: #E2E8F0;
+    border: 1px solid #CBD5E1;
+    border-radius: 6px;
+    color: #0F172A;
+    selection-background-color: #2563EB;
+    selection-color: #FFFFFF;
+}
+QLineEdit:focus, QComboBox:focus, QSpinBox:focus, QDoubleSpinBox:focus { border-color: #2563EB; }
+QComboBox QAbstractItemView {
+    background-color: #F1F5F9;
+    border: 1px solid #CBD5E1;
+    selection-background-color: #D9E3F7;
+    selection-color: #0F172A;
+}
+
+/* ---------- Menus, abas, barra de status ---------- */
+QMenuBar::item:selected { background-color: #E2E8F0; color: #2563EB; border-radius: 6px; }
+QMenu { background-color: #F1F5F9; border: 1px solid #CBD5E1; border-radius: 6px; }
+QMenu::item:selected { background-color: #D9E3F7; color: #0F172A; border-left: 3px solid #2563EB; }
+
+QTabBar::tab:selected { color: #2563EB; border-bottom: 2px solid #2563EB; font-weight: 700; }
+
+OBSBasicStatusBar { background: #F8FAFC; border-top: 1px solid #CBD5E1; }
+QStatusBar QLabel, StatusBarWidget QLabel {
+    font-family: "JetBrains Mono", "Consolas", monospace;
+    color: #64748B;
+}
+
+/* ---------- Barras de rolagem finas ---------- */
+QScrollBar::handle { border-radius: 3px; }
+QScrollBar::handle:hover { background: #2563EB; }

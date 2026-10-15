@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <!-- Gradiente Safira para Esmeralda Lumina -->
+    <linearGradient id="lumina-g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="50%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+
+    <!-- Gradiente Violeta Elétrico para Safira -->
+    <linearGradient id="lumina-g2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8B5CF6" />
+      <stop offset="50%" stop-color="#6366F1" />
+      <stop offset="100%" stop-color="#3B82F6" />
+    </linearGradient>
+
+    <!-- Gradiente Esmeralda para Âmbar Broadcast -->
+    <linearGradient id="lumina-g3" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+
+    <!-- Brilho Glow -->
+    <filter id="lumina-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="2.5" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+
+    <!-- Glow Suave Fundo -->
+    <radialGradient id="lumina-aura" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#3B82F6" stop-opacity="0.35" />
+      <stop offset="70%" stop-color="#10B981" stop-opacity="0.1" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Aura de fundo brilhante -->
+  <circle cx="24" cy="24" r="22" fill="url(#lumina-aura)" />
+
+  <!-- Anel externo sutil broadcast -->
+  <circle cx="24" cy="24" r="21" stroke="rgba(255, 255, 255, 0.12)" stroke-width="1.2" stroke-dasharray="3 3" />
+
+  <!-- Lâminas Pinwheel Dinâmicas do OBS Estilizadas (Lumina Wings) -->
+  <g filter="url(#lumina-glow)">
+    <!-- Lâmina 1: Safira & Ciano -->
+    <path d="M24 7 C28 7, 39 12, 38 21 C37.5 24.5, 33 26, 29 24.5 C24 22.5, 25 15, 24 7 Z" 
+          fill="url(#lumina-g1)" />
+
+    <!-- Lâmina 2: Violeta & Safira -->
+    <path d="M40 30 C38 34, 28 41, 19 38 C15.5 36.8, 15 32, 17.5 28.5 C20.5 24.5, 28 27.5, 40 30 Z" 
+          fill="url(#lumina-g2)" />
+
+    <!-- Lâmina 3: Esmeralda Neon -->
+    <path d="M8 25 C7 20, 15 11, 24 13 C27 14, 27.5 18.5, 24.5 21.5 C21 25, 13 22, 8 25 Z" 
+          fill="url(#lumina-g3)" />
+  </g>
+
+  <!-- Anel Central de Foco -->
+  <circle cx="24" cy="24" r="6.2" fill="#07090E" stroke="url(#lumina-g1)" stroke-width="2.2" />
+
+  <!-- Ponto Central Luminescente -->
+  <circle cx="24" cy="24" r="2.8" fill="#FFFFFF" />
+  <circle cx="24" cy="24" r="1.5" fill="#38BDF8" />
+</svg>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://endrigocostaluiz.github.io/skin-obs/sitemap.xml
